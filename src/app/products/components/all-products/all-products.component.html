@@ -1,0 +1,33 @@
+<div class="box mt-5  w-100">
+  <div class="my-2 w-25 mt-5">
+    <label for="" class="my-1"></label>
+    <select name="" id="" class="form-control" (change)="filterCategory($event)">
+      <option value="All"  selected> All</option>
+      <option value="{{cat}}"  *ngFor="let cat of categoryArr"> {{cat}}</option>
+    </select>
+
+  </div>
+</div>
+    <app-select></app-select>
+    <div class="test">
+    <div class="row">
+     <div style="padding: 5rem;" class="card" class="col-md-4"style="width: 18rem;" *ngFor="let item of productArr">
+        <div class="item">
+          <img src="{{item.image}}" alt="">
+          <div class="body">
+          <h4>{{item.title}}</h4>
+          <p>{{item.description}}</p>
+        </div>
+        <div  class="px-3 mb-2 d-flex justify-content-between align-item-center" >
+          <button style="padding: 10px;" class="btn btn-success" (click)="Addtocart(item)" >Add to cart</button>
+          <span>{{item.price}}$</span>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+

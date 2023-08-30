@@ -1,0 +1,17 @@
+<nav>
+  <div class="logo">NTG</div>
+  <div class="links">
+    <ul>
+      <!-- <li *ngFor="let arr of myArr">{{ arr }}</li> -->
+      <li routerLink="/products" routerLinkActive="active">product</li>
+      <li routerLink="/cart" routerLinkActive="active">cart</li>
+    </ul>
+  </div>
+  <button routerLink="/cart" routerLinkActive="active" class="btn btn-primary">
+    <i>items: </i>
+    <div style="font-size: 10px;">{{totalItem}}</div>
+
+</button>
+
+</nav>
+

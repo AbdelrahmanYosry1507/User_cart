@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+  <ng-container *ngIf="products.length !=0">
+  <table class="table caption-top" class="table table-hover">
+    <caption>List of users</caption>
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Rating</th>
+        <th scope="col">image</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let i of products">
+        <th scope="row">{{i.id}}</th>
+
+        <td>{{i.price}}</td>
+        <td>{{i.category}}</td>
+        <td >{{ i.rating.rate}}<span class="fa fa-star " [class.checked]="i.rating.rate>=1"></span>
+          <span class="fa fa-star" [class.checked]="i.rating.rate>=2"></span>
+          <span class="fa fa-star " [class.checked]="i.rating.rate>=3"></span>
+          <span class="fa fa-star" [class.checked]="i.rating.rate>=4"></span>
+          <span class="fa fa-star" [class.checked]="i.rating.rate>=5"></span></td>
+        <td ><img src="{{i.image}}" alt="" style="width: 100px; height: 100px;"></td>
+        <td ><button class="btn1" style="width: 100%; height: 100%;"(click)="removeItem(i)" (click)="deleteFunction(i.id)"  class="btn btn-danger">Delete item</button></td>
+      </tr>
+
+      <tr>
+        <td colspan="4"></td>
+        <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
+        <td><button (click)="routeTo()" class="btn btn-primary">Shop More</button></td>
+        <td><button class="btn btn-success" (click)="check()">Checkout</button></td>
+        <td><strong>Grand Total : ${{grandTotal}}</strong></td>
+    </tr>
+
+    </tbody>
+  </table>
+</ng-container>
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+<ng-container  *ngIf="products.length ==0">
+  <div class="container">
+
+      <div class="center">
+          <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+          <h4>Your cart is empty!</h4>
+          <h6>Add item to it now</h6>
+          <button class="btn btn-primary"><li routerLink="/products" routerLinkActive="active" (click)="routeTo()">Shop Now</li></button>
+      </div>
+  </div>
+</ng-container>
+
+
+
+  <div class="alert alert-success" role="alert" style="width: 25%; margin-left: 2.5%;" *ngIf="showElement==false"><strong>Well done!</strong> Your Order is Successfully Send
+    <strong> Your reset is ${{grandTotal}}</strong>
+
+  </div>
+
+
+
+
